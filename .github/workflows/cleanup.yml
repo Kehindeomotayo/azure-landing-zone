@@ -1,0 +1,33 @@
+name: 'Cleanup Azure Resources'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    name: 'Azure CLI Cleanup'
+    runs-on: ubuntu-latest
+    environment: dev
+    
+    steps:
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: |
+          {
+            "clientId": "${{ secrets.ARM_CLIENT_ID }}",
+            "clientSecret": "${{ secrets.ARM_CLIENT_SECRET }}",
+            "subscriptionId": "${{ secrets.ARM_SUBSCRIPTION_ID }}",
+            "tenantId": "${{ secrets.ARM_TENANT_ID }}"
+          }
+
+    - name: Delete Resource Groups
+      run: |
+        az group delete --name rg-landing-zone-mgt --yes --no-wait
+        az group delete --name rg-dev-application-spoke --yes --no-wait
+        echo "Resource groups deletion initiated"
+
+    - name: Wait and Verify
+      run: |
+        sleep 30
+        az group list --output table
