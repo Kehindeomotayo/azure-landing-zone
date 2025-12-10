@@ -360,21 +360,21 @@ resource "azurerm_key_vault_access_policy" "disk_encryption" {
   key_permissions = ["Get", "WrapKey", "UnwrapKey"]
 }
 
-# Microsoft Defender for Cloud
-resource "azurerm_security_center_subscription_pricing" "vm" {
-  tier          = "Standard"
-  resource_type = "VirtualMachines"
-}
+# Microsoft Defender for Cloud (already configured at subscription level)
+# resource "azurerm_security_center_subscription_pricing" "vm" {
+#   tier          = "Standard"
+#   resource_type = "VirtualMachines"
+# }
 
-resource "azurerm_security_center_subscription_pricing" "storage" {
-  tier          = "Standard"
-  resource_type = "StorageAccounts"
-}
+# resource "azurerm_security_center_subscription_pricing" "storage" {
+#   tier          = "Standard"
+#   resource_type = "StorageAccounts"
+# }
 
-resource "azurerm_security_center_subscription_pricing" "keyvault" {
-  tier          = "Standard"
-  resource_type = "KeyVaults"
-}
+# resource "azurerm_security_center_subscription_pricing" "keyvault" {
+#   tier          = "Standard"
+#   resource_type = "KeyVaults"
+# }
 
 # resource "azurerm_security_center_contact" "main" {
 #   email               = var.security_contact_email
