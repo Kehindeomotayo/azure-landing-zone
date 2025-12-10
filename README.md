@@ -1,4 +1,4 @@
-# Azure Enterprise Landing Zone - Secure
+# Azure Enterprise Landing Zone - Secure v2
 
 ## GitHub Actions Setup
 
