@@ -30,6 +30,18 @@ jobs:
     - name: Terraform Format
       run: terraform fmt -check
 
+    - name: Debug ARM Variables
+      env:
+        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      run: |
+        echo "ARM_CLIENT_ID is set: ${ARM_CLIENT_ID:+yes}"
+        echo "ARM_CLIENT_SECRET is set: ${ARM_CLIENT_SECRET:+yes}"
+        echo "ARM_SUBSCRIPTION_ID is set: ${ARM_SUBSCRIPTION_ID:+yes}"
+        echo "ARM_TENANT_ID is set: ${ARM_TENANT_ID:+yes}"
+
     - name: Terraform Init
       env:
         ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
