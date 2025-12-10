@@ -253,9 +253,9 @@ resource "azurerm_linux_virtual_machine" "ldz_vm" {
   }
 
   os_disk {
-    caching                   = "ReadWrite"
-    storage_account_type      = "Premium_LRS"
-    disk_encryption_set_id    = azurerm_disk_encryption_set.main.id
+    caching                = "ReadWrite"
+    storage_account_type   = "Premium_LRS"
+    disk_encryption_set_id = azurerm_disk_encryption_set.main.id
   }
 
   source_image_reference {
@@ -295,9 +295,9 @@ resource "azurerm_linux_virtual_machine" "dev_spoke_vm" {
   }
 
   os_disk {
-    caching                   = "ReadWrite"
-    storage_account_type      = "Premium_LRS"
-    disk_encryption_set_id    = azurerm_disk_encryption_set.main.id
+    caching                = "ReadWrite"
+    storage_account_type   = "Premium_LRS"
+    disk_encryption_set_id = azurerm_disk_encryption_set.main.id
   }
 
   source_image_reference {
