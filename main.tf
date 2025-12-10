@@ -376,11 +376,11 @@ resource "azurerm_security_center_subscription_pricing" "keyvault" {
   resource_type = "KeyVaults"
 }
 
-resource "azurerm_security_center_contact" "main" {
-  email               = var.security_contact_email
-  alert_notifications = true
-  alerts_to_admins    = true
-}
+# resource "azurerm_security_center_contact" "main" {
+#   email               = var.security_contact_email
+#   alert_notifications = true
+#   alerts_to_admins    = true
+# }
 
 resource "azurerm_security_center_workspace" "main" {
   scope        = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
