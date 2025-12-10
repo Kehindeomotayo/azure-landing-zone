@@ -16,6 +16,7 @@ provider "azurerm" {
       purge_soft_delete_on_destroy = false
     }
   }
+  use_cli = false
 }
 
 data "azurerm_client_config" "current" {}
